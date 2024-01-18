@@ -26,11 +26,11 @@ public class ProdutoController {
     private CategoriaRepository categoriaRepository;
 
     @GetMapping
-    public ResponseEntity<List<Produto>> getAll() {
+    public ResponseEntity<List<Produto>> ShowAll() {
         return ResponseEntity.ok(produtosRepository.findAll());
     }
     @GetMapping("/{id}")
-    public ResponseEntity<Produto> getById(@PathVariable Long id) {
+    public ResponseEntity<Produto> ShowAllById(@PathVariable Long id) {
         return produtosRepository.findById(String.valueOf(id)).map(resposta -> ResponseEntity.ok(resposta))
                 .orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
     }
